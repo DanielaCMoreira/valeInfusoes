@@ -24,7 +24,7 @@ class MedicoFactory extends Factory
         return [
             'nome' => $this->faker->name,
             'crm' => 'CRM/SP' . rand(100000,999999),
-            'data_nascimento' => today()->subYear(rand(23, 80)),
+            'data_nascimento' => now()->subDay(rand(1, 31))->subMonth(rand(1, 12))->subYear(rand(23, 80)),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];

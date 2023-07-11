@@ -3,31 +3,33 @@
 namespace Database\Factories;
 
 use Carbon\Carbon;
+use App\Models\Medico;
+use App\Models\Especialidade;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BeneficiarioFactory extends Factory
+class LocalAtendimentoFactory extends Factory
 {
     /**
      * Define name of the factory's corresponding model
      *
      * @return string
      */
-    protected $model = \App\Models\Beneficiario::class;
+    protected $model = \App\Models\LocalAtendimento::class;
 
     /**
      * Define the model's default state.
      *
      * @return array
      */
-
     public function definition()
     {
-        $sexo = [ 0 => 'f', 1 => 'm'];
+        $randomMedico = Medico::inRandomOrder()->first();
+        $randomEspecialidade = Especialidade::inRandomOrder()->first();
 
         return [
-            'nome' => $this->faker->name,
-            'data_nascimento' => today()->subDay(rand(1, 31))->subMonth(rand(1, 12))->subYear(rand(1, 80)),
-            'sexo' => $sexo[rand(0,1)],
+            'endereco' => $this->faker->address,
+            'medico_id' => $randomMedico->id,
+            'especialidade_id' => $randomEspecialidade->id,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
