@@ -17,6 +17,7 @@ class LocalAtendimento extends Migration
             $table->id();
             $table->string('endereco');
             $table->foreignId('medico_id')->constrained('medico');
+            $table->foreignId('especialidade_id')->constrained('especialidade');
             $table->timestamps();
         });
     }
