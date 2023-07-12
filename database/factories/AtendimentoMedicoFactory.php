@@ -4,8 +4,6 @@ namespace Database\Factories;
 
 use Carbon\Carbon;
 use App\Models\Beneficiario;
-use App\Models\Especialidade;
-use App\Models\Medico;
 use App\Models\LocalAtendimento;
 use App\Models\Procedimento;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -27,15 +25,13 @@ class AtendimentoMedicoFactory extends Factory
     public function definition()
     {
         $randomBeneficiario = Beneficiario::inRandomOrder()->first();
-        $randomEspecialidade = Especialidade::inRandomOrder()->first();
-        $randomMedico = Medico::inRandomOrder()->first();
         $randomLocalAtendimento = LocalAtendimento::inRandomOrder()->first();
         $randomProcedimento = Procedimento::inRandomOrder()->first();
 
         return [
             'beneficiario_id' => $randomBeneficiario->id,
-            'especialidade_id' => $randomEspecialidade->id,
-            'medico_id' => $randomMedico->id,
+            'especialidade_id' => $randomLocalAtendimento->especialidade_id,
+            'medico_id' => $randomLocalAtendimento->medico_id,
             'local_id' => $randomLocalAtendimento->id,
             'procedimento_id' => $randomProcedimento->id,
             'data' => today()->subDay(rand(1, 31))->subMonth(rand(1, 12))->subYear(rand(1, 5)),
