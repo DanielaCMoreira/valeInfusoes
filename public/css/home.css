@@ -22,3 +22,11 @@ a.card-link {
     font-weight: bold;
     color: #0080c0;
 }
+.removerEstilosBootstrap, .removerEstilosBootstrap:hover, .removerEstilosBootstrap:focus {
+    outline: none;
+    text-transform: none;
+    text-decoration: none;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}

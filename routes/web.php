@@ -48,5 +48,9 @@ Route::prefix('atendimento')->group(function () {
 });
 
 Route::prefix('relatorio')->group(function () {
-    Route::get('/index', [App\Http\Controllers\RelatorioController::class, 'index'])->name('relatorio.index');
+    Route::get('/beneficiarios', [App\Http\Controllers\RelatorioController::class, 'beneficiarios'])->name('relatorio.beneficiarios');
+    Route::get('/medicos', [App\Http\Controllers\RelatorioController::class, 'medicos'])->name('relatorio.medicos');
+    Route::get('/atendimentos', [App\Http\Controllers\RelatorioController::class, 'atendimentos'])->name('relatorio.atendimentos');
+    Route::get('/locais-atendimento', [App\Http\Controllers\RelatorioController::class, 'locaisAtendimento'])->name('relatorio.locais.atendimento');
+    Route::get('/beneficiario-maiores-atendimentos', [App\Http\Controllers\RelatorioController::class, 'beneficiariosMaioresAtendimentos'])->name('relatorio.maiores.atendimentos');
 });

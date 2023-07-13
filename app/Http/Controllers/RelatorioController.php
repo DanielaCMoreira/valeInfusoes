@@ -6,13 +6,29 @@ use Illuminate\Http\Request;
 
 class RelatorioController extends Controller
 {
-    public function index()
+    public function beneficiarios()
     {
-        return view('cadastros.relatorio');
+        return view('relatorio.relatorioBeneficiario');
+    }
+    
+    public function medicos()
+    {
+        return view('relatorio.relatorioMedicos');
+    }
+    
+    public function atendimentos()
+    {
+        return view('relatorio.relatorioAtendimento');
+    }
+    
+    public function locaisAtendimento()
+    {
+        return view('relatorio.relatorioLocaisAtendimento');
+    }
+    
+    public function beneficiariosMaioresAtendimentos()
+    {
+        return view('relatorio.relatoriosMaioresAtendimentos');
     }
 
-    public function cadastro() 
-    {
-        return 'cadastro';
-    }
 }

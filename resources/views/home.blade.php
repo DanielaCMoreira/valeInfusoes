@@ -102,7 +102,7 @@
                             </svg>
                             Beneficiários
                         </h5>
-                        <a href="{{route('relatorio.index')}}" class="card-link">VISUALIZAR</a>
+                        <a href="{{route('relatorio.beneficiarios')}}" class="card-link">VISUALIZAR</a>
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                             </svg>
                             Médicos
                         </h5>
-                        <a href="{{route('relatorio.index')}}" class="card-link">VISUALIZAR</a>
+                        <a href="{{route('relatorio.medicos')}}" class="card-link">VISUALIZAR</a>
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@
                             </svg>
                             Atendimentos
                         </h5>
-                        <a href="{{route('relatorio.index')}}" class="card-link">VISUALIZAR</a>
+                        <a href="{{route('relatorio.atendimentos')}}" class="card-link">VISUALIZAR</a>
                     </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@
                             </svg>
                             Locais de Atendimento
                         </h5>
-                        <a href="{{route('relatorio.index')}}" class="card-link">VISUALIZAR</a>
+                        <a href="{{route('relatorio.locais.atendimento')}}" class="card-link">VISUALIZAR</a>
                     </div>
                 </div>
             </div>
@@ -162,7 +162,7 @@
                             </svg>
                             Beneficiários mais atendidos
                         </h5>
-                        <a href="{{route('relatorio.index')}}" class="card-link">VISUALIZAR</a>
+                        <a href="{{route('relatorio.maiores.atendimentos')}}" class="card-link">VISUALIZAR</a>
                     </div>
                 </div>
             </div>
