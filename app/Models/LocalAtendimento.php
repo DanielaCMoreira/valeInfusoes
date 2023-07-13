@@ -12,8 +12,13 @@ class LocalAtendimento extends Model
 
     protected $fillable = ['id','endereco','medico_id','especialidade_id','created_at','updated_at'];
 
-    public function medico()
+    public function medicos()
     {
-        return $this->belongsTo(Medico::class);
+        return $this->hasMany(Medico::class,'id', 'medico_id');
+    }
+    
+    public function especialidades()
+    {
+        return $this->hasMany(Especialidade::class,'id', 'especialidade_id');
     }
 }

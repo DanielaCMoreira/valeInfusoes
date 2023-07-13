@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Medico;
+use Carbon\Carbon;
 
 class MedicoController extends Controller
 {
@@ -11,8 +13,27 @@ class MedicoController extends Controller
         return view('cadastros.medico');
     }
 
-    public function cadastro() 
+    public function cadastro(Request $request) 
     {
-        return 'cadastro';
+        $request->validate(
+            [
+                'nome' => 'required|max:255|min:5',
+                'data_nascimento' => 'required',
+                'crm' => 'required|max:255|min:5'
+            ],
+            [
+                'nome.required' => 'O campo nome é obrigatório',
+                'data_nascimento.required' => 'O campo data de nascimento é obrigatório',
+                'crm.required' => 'O campo CRM é obrigatório',
+            ]
+        );
+
+        Medico::create([
+            'nome' => $request->nome,
+            'data_nascimento' => Carbon::parse($request->data_nascimento)->format('Y-m-d'),
+            'crm' => $request->crm,
+        ]);
+
+        return view('cadastros.medico')->with('sucesso', 'Cadastro realizado com sucesso!');
     }
 }
