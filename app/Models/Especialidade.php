@@ -14,4 +14,9 @@ class Especialidade extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = ['id','especialidade','cbos','created_at','updated_at'];
+    
+    public function localAtendimento() 
+    {
+        return $this->belongsTo(LocalAtendimento::class);
+    }
 }

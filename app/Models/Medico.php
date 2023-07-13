@@ -17,6 +17,6 @@ class Medico extends Model
 
     public function localAtendimento() 
     {
-        return $this->HasOne(LocalAtendimento::class);
+        return $this->belongsTo(LocalAtendimento::class);
     }
 }
