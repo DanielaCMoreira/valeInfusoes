@@ -1,0 +1,24 @@
+.navbar {
+    border-bottom: solid 3px #e4e3e3;
+    box-shadow: 1px 0px 13px 0px #c6c6c6;
+    -webkit-box-shadow: 1px 0px 13px 0px #c6c6c6;
+    -moz-box-shadow: 1px 0px 13px 0px #c6c6c6;
+}
+.card {
+    border-left: solid 2px #0080c0;
+    box-shadow: 1px 0px 13px 0px #d6d6d6;
+    -webkit-box-shadow: 1px 0px 13px 0px #d6d6d6;
+    -moz-box-shadow: 1px 0px 13px 0px #d6d6d6;
+}
+.card:hover
+{
+    -moz-transition: all 0.4s ease-in;
+    -webkit-transition: all 0.4s ease-in;
+    -o-transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in;
+    transform: scale(1.1);
+}
+a.card-link {
+    font-weight: bold;
+    color: #0080c0;
+}
