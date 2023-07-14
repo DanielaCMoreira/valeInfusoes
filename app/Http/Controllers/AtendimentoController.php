@@ -19,6 +19,30 @@ class AtendimentoController extends Controller
         return view('cadastros.atendimento', compact('locaisAtendimento','beneficiarios','procedimentos'));
     }
 
+    public function carregarCampos(Request $request)
+    {
+        switch ($request->campo) {
+            case 'local':
+                $local = LocalAtendimento::where('id', $request->local)->first();
+                return $local;
+
+                break;
+            case 'medico':
+                $local = LocalAtendimento::where('medico_id', $request->medico)->first();
+                return $local;
+
+                break;
+            case 'especialidade':
+                $local = LocalAtendimento::where('especialidade_id', $request->especialidade)->first();
+                return $local;
+                
+                break;
+            default:
+                $local = LocalAtendimento::first();
+                break;
+        }
+    }
+
     public function cadastro(Request $request) 
     {
         $request->validate(

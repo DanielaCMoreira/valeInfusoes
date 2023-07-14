@@ -17,5 +17,76 @@
                 Relatório de Locais de Atendimento
             </h4>
         </div>
+        <form action="{{route('relatorio.locais.atendimento.resultados')}}" method="POST">
+            @csrf
+            <div class="row">
+                <div class="col-12 p-0 mt-3">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Local</label>
+                        <input type="text" class="form-control campoData removerEstilosBootstrap inputPadrao" value="@isset($request->endereco) {{$request->endereco}} @endisset" id="endereco" name="endereco" placeholder="Pesquise por endereço">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 pl-0">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Médico</label>
+                        <select class="form-control removerEstilosBootstrap inputPadrao" name="medico">
+                            <option value="">Todos</option>
+                            @foreach($medicos as $medico)
+                                <option value="{{$medico->id}}">{{$medico->nome}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="col-6 pr-0">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Especialidades</label>
+                        <select class="form-control removerEstilosBootstrap inputPadrao" name="especialidade">
+                            <option value="">Todas</option>
+                            @foreach($especialidades as $especialidade)
+                                <option value="{{$especialidade->id}}">{{$especialidade->especialidade}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-3 pr-0">
+                    <button type="submit" class="btn btn-primary w-100">Pesquisar</button>
+                </div>
+            </div>
+        </form>
+        @isset($resultados)
+            <div class="row mt-5 d-flex">
+                <h4>
+                    Resultados
+                </h4>
+            </div>
+            <div class="row">
+                <div class="col-12 p-0">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Endereço</th>
+                                <th scope="col">Medico</th>
+                                <th scope="col">Especialidade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($resultados as $resultado)
+                                <tr>
+                                    <th scope="row">{{$resultado->id}}</th>
+                                    <td>{{$resultado->endereco}}</td>
+                                    <td>{{$resultado->nome}}</td>
+                                    <td>{{$resultado->especialidade}}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        @endisset
     </div>
 @endsection

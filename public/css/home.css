@@ -30,3 +30,6 @@ a.card-link {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+.inputPadrao, .inputPadrao:hover, .inputPadrao:focus {
+    border: solid 1px #c6c6c6;
+}
