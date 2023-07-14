@@ -3,7 +3,7 @@
 @section('links')
     @parent
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/cadastros.css') }}" rel="stylesheet">
+    <script src="{{asset('js/atendimento.js')}}" defer></script>
 @endsection
 
 @section('content')
@@ -20,6 +20,7 @@
         </div>
         <form action="{{route('atendimento.cadastro')}}" method="POST">
             @csrf
+            <input type="hidden" value="{{route('atendimento.carregar.campos')}}" id="rotaCarregarCampo">
             <div class="row mt-5">
                 <div class="col-12 p-0">
                     <div class="form-group">
@@ -36,7 +37,7 @@
                 <div class="col-6 p-0">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Local</label>
-                        <select class="form-control removerEstilosBootstrap inputPadrao" name="endereco">
+                        <select class="form-control removerEstilosBootstrap inputPadrao" id="endereco" name="endereco" onchange="carregarCampos('local')">
                             @foreach($locaisAtendimento as $local)
                                 <option value="{{$local->id}}">{{$local->endereco}}</option>
                             @endforeach
@@ -46,7 +47,7 @@
                 <div class="col-3 pr-0">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Médico</label>
-                        <select class="form-control removerEstilosBootstrap inputPadrao" name="medico">
+                        <select class="form-control removerEstilosBootstrap inputPadrao" id="medico" name="medico" onchange="carregarCampos('medico')">
                             @foreach($locaisAtendimento as $local)
                                 @foreach($local->medicos as $medico)
                                     <option value="{{$medico->id}}">{{$medico->nome}}</option>
@@ -58,7 +59,7 @@
                 <div class="col-3 pr-0">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Especialidade</label>
-                        <select class="form-control removerEstilosBootstrap inputPadrao" name="especialidade">
+                        <select class="form-control removerEstilosBootstrap inputPadrao" id="especialidade" name="especialidade" onchange="carregarCampos('especialidade')">
                             @foreach($locaisAtendimento as $local)
                                 @foreach($local->especialidades as $especialidade)
                                     <option value="{{$especialidade->id}}">{{$especialidade->especialidade}}</option>

@@ -45,12 +45,17 @@ Route::prefix('local')->group(function () {
 Route::prefix('atendimento')->group(function () {
     Route::get('/index', [App\Http\Controllers\AtendimentoController::class, 'index'])->name('atendimento.index');
     Route::post('/cadastro', [App\Http\Controllers\AtendimentoController::class, 'cadastro'])->name('atendimento.cadastro');
+    Route::post('/carregarCampos', [App\Http\Controllers\AtendimentoController::class, 'carregarCampos'])->name('atendimento.carregar.campos');
 });
 
 Route::prefix('relatorio')->group(function () {
     Route::get('/beneficiarios', [App\Http\Controllers\RelatorioController::class, 'beneficiarios'])->name('relatorio.beneficiarios');
+    Route::post('/beneficiarios-resultados', [App\Http\Controllers\RelatorioController::class, 'beneficiariosResultados'])->name('relatorio.beneficiarios.resultados');
     Route::get('/medicos', [App\Http\Controllers\RelatorioController::class, 'medicos'])->name('relatorio.medicos');
+    Route::post('/medicos-resultados', [App\Http\Controllers\RelatorioController::class, 'medicosResultados'])->name('relatorio.medicos.resultados');
     Route::get('/atendimentos', [App\Http\Controllers\RelatorioController::class, 'atendimentos'])->name('relatorio.atendimentos');
+    Route::post('/atendimentos-resultados', [App\Http\Controllers\RelatorioController::class, 'atendimentosResultados'])->name('relatorio.atendimentos.resultados');
     Route::get('/locais-atendimento', [App\Http\Controllers\RelatorioController::class, 'locaisAtendimento'])->name('relatorio.locais.atendimento');
+    Route::post('/locais-atendimento-resultados', [App\Http\Controllers\RelatorioController::class, 'locaisAtendimentoResultados'])->name('relatorio.locais.atendimento.resultados');
     Route::get('/beneficiario-maiores-atendimentos', [App\Http\Controllers\RelatorioController::class, 'beneficiariosMaioresAtendimentos'])->name('relatorio.maiores.atendimentos');
 });
