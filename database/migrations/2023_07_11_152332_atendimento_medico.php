@@ -20,7 +20,7 @@ class AtendimentoMedico extends Migration
             $table->foreignId('medico_id')->constrained('medico');
             $table->foreignId('local_id')->constrained('local_atendimento');
             $table->foreignId('procedimento_id')->constrained('procedimento');
-            $table->dateTime('data');
+            $table->date('data');
             $table->timestamps();
         });
     }

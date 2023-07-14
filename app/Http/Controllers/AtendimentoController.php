@@ -7,6 +7,7 @@ use App\Models\LocalAtendimento;
 use App\Models\Beneficiario;
 use App\Models\Procedimento;
 use App\Models\AtendimentoMedico;
+use Illuminate\Support\Facades\Redirect;
 
 class AtendimentoController extends Controller
 {
@@ -72,6 +73,6 @@ class AtendimentoController extends Controller
             'data' => $request->data,
         ]);
 
-        return redirect()->back()->with('sucesso', 'Cadastro realizado com sucesso!');
+        return Redirect::back()->withErrors(['msg' => 'Cadastro realizado com sucesso!']);
     }
 }

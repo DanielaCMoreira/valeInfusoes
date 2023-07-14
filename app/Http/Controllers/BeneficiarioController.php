@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Beneficiario;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Redirect;
 
 class BeneficiarioController extends Controller
 {
@@ -32,6 +33,6 @@ class BeneficiarioController extends Controller
             'sexo' => $request->sexo,
         ]);
 
-        return view('cadastros.beneficiario')->with('sucesso', 'Cadastro realizado com sucesso!');
+        return Redirect::back()->withErrors(['msg' => 'Cadastro realizado com sucesso!']);
     }
 }

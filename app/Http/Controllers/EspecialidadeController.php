@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Especialidade;
+use Illuminate\Support\Facades\Redirect;
 
 class EspecialidadeController extends Controller
 {
@@ -30,6 +31,6 @@ class EspecialidadeController extends Controller
             'cbos' => $request->cbo,
         ]);
 
-        return view('cadastros.beneficiario')->with('sucesso', 'Cadastro realizado com sucesso!');
+        return Redirect::back()->withErrors(['msg' => 'Cadastro realizado com sucesso!']);
     }
 }

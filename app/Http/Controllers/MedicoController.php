@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Medico;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Redirect;
 
 class MedicoController extends Controller
 {
@@ -34,6 +35,6 @@ class MedicoController extends Controller
             'crm' => $request->crm,
         ]);
 
-        return view('cadastros.medico')->with('sucesso', 'Cadastro realizado com sucesso!');
+        return Redirect::back()->withErrors(['msg' => 'Cadastro realizado com sucesso!']);
     }
 }
