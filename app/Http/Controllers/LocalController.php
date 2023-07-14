@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\LocalAtendimento;
 use App\Models\Medico;
 use App\Models\Especialidade;
+use Illuminate\Support\Facades\Redirect;
 
 class LocalController extends Controller
 {
@@ -38,6 +39,6 @@ class LocalController extends Controller
             'especialidade_id' => $request->especialidade,
         ]);
 
-        return redirect()->back()->with('sucesso', 'Cadastro realizado com sucesso!');
+        return Redirect::back()->withErrors(['msg' => 'Cadastro realizado com sucesso!']);
     }
 }

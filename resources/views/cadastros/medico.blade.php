@@ -47,23 +47,14 @@
                 </div>
             </div>
         </form>
-        @if(isset($sucesso))
-            <div class="row mt-3">
-                <div class="col-12 p-0">
-                    <div class="alert alert-success" role="alert">
-                        {{$sucesso}}
-                    </div>
-                </div>
-            </div>
-        @endif
         @if($errors->any())
             <div class="row mt-3">
                 <div class="col-12 p-0">
-                    <div class="alert alert-danger" role="alert">
-                        @foreach ($errors->all() as $error)
+                    @foreach ($errors->all() as $error)
+                        <div class="alert alert-primary" role="alert">
                             {{$error}} <br>
-                        @endforeach
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         @endif

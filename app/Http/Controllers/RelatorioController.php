@@ -96,10 +96,10 @@ class RelatorioController extends Controller
                 return $query->where('local_atendimento.endereco', 'like', '%' . $filtro_endereco . '%');
             })
             ->when($filtro_medico, function ($query, $filtro_medico) {
-                return $query->where('local_atendimento.medico_id', $filtro_medico);
+                return $query->where('local_atendimento.medico_id', 'like', '%' . $filtro_medico . '%');
             })
             ->when($filtro_especialidade, function ($query, $filtro_especialidade) {
-                return $query->where('local_atendimento.especialidade_id', $filtro_especialidade);
+                return $query->where('local_atendimento.especialidade_id', 'like', '%' . $filtro_especialidade . '%');
             })
             ->get();
 
